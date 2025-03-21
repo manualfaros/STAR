@@ -1,34 +1,19 @@
-#!/usr/bin/env bash
-# The name to show in queue lists for this job:
-#SBATCH -J STAR
-
-# Number of desired cpus:
-#SBATCH --cpus-per-task=24
-
-# Amount of RAM needed for this job:
-#SBATCH --mem=48gb
-
-# The time the job will be running:
-#SBATCH --time=10:00:00
-
-# To use GPUs you have to request them:
-##SBATCH --gres=gpu:1
-
-# Set output and error files
-#SBATCH --error=ejemplo_simple.%J.err
-#SBATCH --output=ejemplo_simple.%J.out
-
-#SBATCH --constraint=cal
-
-# To load some software (you can show the list with 'module avail'):
-module load star
-
-
-# the program to execute with its parameters:
-STAR --genomeDir mnt2/fscratch/users/gen_mic_unavarra/malfaro/genomevitis --readFilesIn M2-x-PC23_S1_R1_001.fastq M2-x-PC23_S1_R2_001.fastq --runThreadN 4 --outSAMtype BAM SortedByCoordinate --outFileNamePrefix mitPaired
-STAR --genomeDir mnt2/fscratch/users/gen_mic_unavarra/malfaro/genomevitis --readFilesIn Vit13R1.fastq.gz Vit13R2.fastq.gz --outSAMtype BAM SortedByCoordinate> Vit13.bam
-STAR --genomeDir mnt2/fscratch/users/gen_mic_unavarra/malfaro/genomevitis --readFilesIn Vit14R1.fastq.gz Vit14R2.fastq.gz --outSAMtype BAM SortedByCoordinate> Vit14.bam
-STAR --genomeDir mnt2/fscratch/users/gen_mic_unavarra/malfaro/genomevitis --readFilesIn Vit15R1.fastq.gz Vit15R2.fastq.gz --outSAMtype BAM SortedByCoordinate> Vit15.bam
-STAR --genomeDir mnt2/fscratch/users/gen_mic_unavarra/malfaro/genomevitis --readFilesIn Vit16R1.fastq.gz Vit16R2.fastq.gz --outSAMtype BAM SortedByCoordinate> Vit16.bam
-STAR --genomeDir mnt2/fscratch/users/gen_mic_unavarra/malfaro/genomevitis --readFilesIn Vit17R1.fastq.gz Vit17R2.fastq.gz --outSAMtype BAM SortedByCoordinate> Vit17.bam
-STAR --genomeDir mnt2/fscratch/users/gen_mic_unavarra/malfaro/genomevitis --readFilesIn Vit18R1.fastq.gz Vit18R2.fastq.gz --outSAMtype BAM SortedByCoordinate> Vit18.bam
+#!/bin/bash
+#SBATCH -p generic
+#$SLURM_SUBMIT_DIR /lustre/home/idab/malfaro
+#Cargar modulos
+#source ./set_env.sh
+#module purge
+#module unuse /dragofs/sw/campus/0.2/modules/all/Core
+#module unuse /dragofs/sw/restricted/0.2/modules/all/Core
+#sleep 2
+module load rama0.3
+module load GCC/11.3.0
+module load STAR/2.7.10b
+#comando STAR para mapear genoma
+STAR --genomeDir genomeStaAur --readFilesIn SRR26422000_pass_1.fastq.gz SRR26422000_pass_2.fastq.gz --runThreadN 4 --readFilesCommand gunzip -c --outFileNamePrefix 0 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate
+STAR --genomeDir genomeStaAur --readFilesIn SRR26422001_pass_1.fastq.gz SRR26422001_pass_2.fastq.gz --runThreadN 4 --readFilesCommand gunzip -c --outFileNamePrefix 1 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate
+STAR --genomeDir genomeStaAur --readFilesIn SRR26422002_pass_1.fastq.gz SRR26422002_pass_2.fastq.gz --runThreadN 4 --readFilesCommand gunzip -c --outFileNamePrefix 2 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate
+STAR --genomeDir genomeStaAur --readFilesIn SRR26422003_pass_1.fastq.gz SRR26422003_pass_2.fastq.gz --runThreadN 4 --readFilesCommand gunzip -c --outFileNamePrefix 3 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate
+STAR --genomeDir genomeStaAur --readFilesIn SRR26422004_pass_1.fastq.gz SRR26422004_pass_2.fastq.gz --runThreadN 4 --readFilesCommand gunzip -c --outFileNamePrefix 4 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate
+STAR --genomeDir genomeStaAur --readFilesIn SRR26422005_pass_1.fastq.gz SRR26422005_pass_2.fastq.gz --runThreadN 4 --readFilesCommand gunzip -c --outFileNamePrefix 5 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate
