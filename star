@@ -9,7 +9,7 @@ fastqc loquesea.fastq
 
 STAR --runMode genomeGenerate --genomeDir /media/m/Datos/STAR/genome --genomeFastaFiles /media/m/Datos/STAR/database/PleosPC15_2_Assembly_scaffolds.fasta --sjdbGTFfile /media/m/Datos/STAR/database/PleosPC15_2_GeneModels_FilteredModels1.gff --sjdbGTFtagExonParentTranscript transcriptId --sjdbOverhang 100 --runThreadN 4
 
-
+##A veces no te deja usar gff, para pasrlo a gtf usa el programa  gffread, ejemplo:    gffread Sa_NCTC8325_NC_007795.1.gff3 -T -o SA.gtf
 
 ##Para lanzar el STAR:
 
