@@ -4,8 +4,7 @@
 #Cargar modulos
 #source ./set_env.sh
 #module purge
-#module unuse /dragofs/sw/campus/0.2/modules/all/Core
-#module unuse /dragofs/sw/restricted/0.2/modules/all/Core
+## comando para lanzarlo con 4 cores y 12 de RAM : sbatch -p generic -n 4 --mem=12GB STARrun.sh 
 #sleep 2
 module load rama0.3
 module load GCC/11.3.0
