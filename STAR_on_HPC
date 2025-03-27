@@ -10,9 +10,9 @@ module load rama0.3
 module load GCC/11.3.0
 module load STAR/2.7.10b
 #comando STAR para mapear genoma
-STAR --genomeDir genomeStaAur --readFilesIn SRR26422000_pass_1.fastq.gz SRR26422000_pass_2.fastq.gz --runThreadN 4 --readFilesCommand gunzip -c --outFileNamePrefix 0 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate
-STAR --genomeDir genomeStaAur --readFilesIn SRR26422001_pass_1.fastq.gz SRR26422001_pass_2.fastq.gz --runThreadN 4 --readFilesCommand gunzip -c --outFileNamePrefix 1 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate
-STAR --genomeDir genomeStaAur --readFilesIn SRR26422002_pass_1.fastq.gz SRR26422002_pass_2.fastq.gz --runThreadN 4 --readFilesCommand gunzip -c --outFileNamePrefix 2 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate
-STAR --genomeDir genomeStaAur --readFilesIn SRR26422003_pass_1.fastq.gz SRR26422003_pass_2.fastq.gz --runThreadN 4 --readFilesCommand gunzip -c --outFileNamePrefix 3 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate
-STAR --genomeDir genomeStaAur --readFilesIn SRR26422004_pass_1.fastq.gz SRR26422004_pass_2.fastq.gz --runThreadN 4 --readFilesCommand gunzip -c --outFileNamePrefix 4 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate
-STAR --genomeDir genomeStaAur --readFilesIn SRR26422005_pass_1.fastq.gz SRR26422005_pass_2.fastq.gz --runThreadN 4 --readFilesCommand gunzip -c --outFileNamePrefix 5 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate
+STAR --genomeDir genomeStaAur --readFilesIn SRR26422000_pass_1.fastq.gz SRR26422000_pass_2.fastq.gz --runThreadN 4 --limitBAMsortRAM 1089973029 --readFilesCommand gunzip -c --outFileNamePrefix 0 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate
+STAR --genomeDir genomeStaAur --readFilesIn SRR26422001_pass_1.fastq.gz SRR26422001_pass_2.fastq.gz --runThreadN 4 --limitBAMsortRAM 1089973029 --readFilesCommand gunzip -c --outFileNamePrefix 1 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate
+STAR --genomeDir genomeStaAur --readFilesIn SRR26422002_pass_1.fastq.gz SRR26422002_pass_2.fastq.gz --runThreadN 4 --limitBAMsortRAM 1089973029 --readFilesCommand gunzip -c --outFileNamePrefix 2 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate
+STAR --genomeDir genomeStaAur --readFilesIn SRR26422003_pass_1.fastq.gz SRR26422003_pass_2.fastq.gz --runThreadN 4 --limitBAMsortRAM 1089973029 --readFilesCommand gunzip -c --outFileNamePrefix 3 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate
+STAR --genomeDir genomeStaAur --readFilesIn SRR26422004_pass_1.fastq.gz SRR26422004_pass_2.fastq.gz --runThreadN 4 --limitBAMsortRAM 1089973029 --readFilesCommand gunzip -c --outFileNamePrefix 4 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate
+STAR --genomeDir genomeStaAur --readFilesIn SRR26422005_pass_1.fastq.gz SRR26422005_pass_2.fastq.gz --runThreadN 4 --limitBAMsortRAM 1089973029 --readFilesCommand gunzip -c --outFileNamePrefix 5 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate
