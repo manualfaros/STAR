@@ -12,5 +12,5 @@ module load GCC/11.3.0
 module load STAR/2.7.10b
 #comando STAR para generar genoma usado en mi pc. En la terceera columna del gff tienen que poner CDS, y en la novena ID=nombre del gen.
 STAR --runMode genomeGenerate --genomeDir genomeStaAurgffIDCDS --genomeFastaFiles Sa_NCTC8325_NC_007795.1.fasta --sjdbGTFfile Sa_8325_plus_SaSPs_50aa_sin_comentarios.gff --sjdbGTFtagExonParentGene ID --sjdbGTFfeatureExon CDS --genomeSAindexNbases 9 --sjdbOverhang 100 --runThreadN 16
-#Comando STAR para crear los BAM, ademas saca cunatas de cada gen y un archivo Bedgraph normalizado por RPM para verlo en igv
-STAR --genomeDir genomeStaAurgffIDCDS/ --readFilesIn SRR26422000_pass_1.fastq.gz SRR26422000_pass_2.fastq.gz --runThreadN 32 --limitBAMsortRAM 1089973029 --readFilesCommand gunzip -c --outFileNamePrefix Prueba444 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate --outWigType bedGraph --outWigNorm RPM
+#Comando STAR para crear los BAM, ademas saca cunatas de cada gen y un archivo wigle para verlo en igv.
+STAR --genomeDir genomeStaAurgffIDCDS/ --readFilesIn SRR26422000_pass_1.fastq.gz SRR26422000_pass_2.fastq.gz --runThreadN 32 --limitBAMsortRAM 1089973029 --readFilesCommand gunzip -c --outFileNamePrefix Prueba555 --quantMode GeneCounts --outSAMtype BAM SortedByCoordinate --outWigType wiggle
