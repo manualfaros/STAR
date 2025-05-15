@@ -1,0 +1,25 @@
+#!/bin/bash
+#run: bash STAR_loop.sh
+# Set the input directories and parameters
+input_dir="fastq"
+output_dir="star"
+genome_dir="genomeStaAurgffIDCDS"
+threads=30
+# Make sure the output directory exists
+mkdir -p $output_dir
+# Find all R1 files in the input folder and loop through them 
+for R1 in ${input_dir}/*_1.fastq.gz; do
+# Derive the corresponding R2 filename by replacing R1 with R2
+   R2=${R1/_1/_2}
+# Get the sample name by extracting the base name without the path and the suffix
+   sample_name=$(basename ${R1} _1.fastq.gz)
+# Run STAR for each sample
+   STAR --genomeDir $genome_dir \
+         --runThreadN $threads \
+         --readFilesIn $R1 $R2 \
+         --outFileNamePrefix ${output_dir}/${sample_name}_ \
+         --quantMode GeneCounts \
+         --outSAMtype BAM SortedByCoordinate \
+         --limitBAMsortRAM 2006740344 \
+         --readFilesCommand zcat
+done
